@@ -1,266 +1,56 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta content="width=device-width,initial-scale=1,minimal-ui" name="viewport">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Material+Icons">
-        <link rel="stylesheet" href="https://unpkg.com/vue-material@beta/dist/vue-material.min.css">
-        <link rel="stylesheet" href="https://unpkg.com/vue-material@beta/dist/theme/default.css">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-        <script language="JavaScript" src="js/control.js"></script>
-    </head>
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1,minimal-ui" name="viewport">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Material+Icons">
+    <link rel="stylesheet" href="https://unpkg.com/vue-material@beta/dist/vue-material.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/vue-material@beta/dist/theme/default.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script language="JavaScript" src="js/control.js"></script>
+  </head>
 
-    <body>
-        <div id="app">
-            <div>
-                <template>
-                    <div>
-                        <md-card>
-                            <md-card-media-cover md-solid>
-                                <md-card-media md-ratio="1:1">
-                                    <img src="img/viagem.png" alt="viagem-aviao" width="550">
-                                </md-card-media>
+  <body>
+    <div id="app">
+        <h1 class="titulo-pagina">O Melhor Site de Viagens do Brasil!</h1>
+        <template>
+            <div class="card-img">
+              <md-card>
+                <md-card-media-cover md-solid>
+                  <md-card-media md-ratio="4:3">
+                    <img src="img/viagem.png" alt="viagem">
+                  </md-card-media>
+          
+                  <md-card-area>
+                    <md-card-header>
+                      <span class="md-title">Compartilhe sua experiência com a comunidade!</span>
+                    </md-card-header>
 
-                                <md-card-area>
-                                    <md-card-header>
-                                        <span class="md-title">Compartilhe sua exeriencia com a comunidade</span>
-                                    </md-card-header>
-
-                                    <md-card-actions>
-                                        <md-button class="md-icon-button">
-                                            <md-icon></md-icon>
-                                        </md-button>
-                                    </md-card-actions>
-                                </md-card-area>
-                            </md-card-media-cover>
-                        </md-card>
-                    </div>
-                </template>
+                    <md-card-actions>
+                        <md-button class="md-icon-button">
+                          <md-icon>more_vert</md-icon>
+                        </md-button>
+                    </md-card-actions>
+                  </md-card-area>
+                </md-card-media-cover>
+              </md-card>
             </div>
-            <div>
-                <template>
-                    <div>
-                        <md-table md-card>
-                            <md-table-toolbar>
-                                <h1 class="md-title">Users</h1>
-                            </md-table-toolbar>
+          </template>
+    </div>
 
-                            <md-table-row>
-                                <md-table-head md-numeric>ID</md-table-head>
-                                <md-table-head>Name</md-table-head>
-                                <md-table-head>Email</md-table-head>
-                                <md-table-head>Gender</md-table-head>
-                                <md-table-head>Job Title</md-table-head>
-                            </md-table-row>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/vue-material@beta"></script>
+    <script>
+      Vue.use(VueMaterial.default)
 
-                            <md-table-row>
-                                <md-table-cell md-numeric>1</md-table-cell>
-                                <md-table-cell>Shawna Dubbin</md-table-cell>
-                                <md-table-cell>sdubbin0@geocities.com</md-table-cell>
-                                <md-table-cell>Male</md-table-cell>
-                                <md-table-cell>Assistant Media Planner</md-table-cell>
-                            </md-table-row>
-
-                            <md-table-row>
-                                <md-table-cell md-numeric>2</md-table-cell>
-                                <md-table-cell>Odette Demageard</md-table-cell>
-                                <md-table-cell>odemageard1@spotify.com</md-table-cell>
-                                <md-table-cell>Female</md-table-cell>
-                                <md-table-cell>Account Coordinator</md-table-cell>
-                            </md-table-row>
-
-                            <md-table-row>
-                                <md-table-cell md-numeric>3</md-table-cell>
-                                <md-table-cell>Vera Taleworth</md-table-cell>
-                                <md-table-cell>vtaleworth2@google.ca</md-table-cell>
-                                <md-table-cell>Male</md-table-cell>
-                                <md-table-cell>Community Outreach Specialist</md-table-cell>
-                            </md-table-row>
-                        </md-table>
-                    </div>
-                </template>
-            </div>
-            <div>
-                <template>
-                    <div>
-                        <form novalidate class="md-layout" @submit.prevent="validateUser">
-                            <md-card class="md-layout-item md-size-50 md-small-size-100">
-                                <md-card-header>
-                                    <div class="md-title">Users</div>
-                                </md-card-header>
-
-                                <md-card-content>
-                                    <div class="md-layout md-gutter">
-                                        <div class="md-layout-item md-small-size-100">
-                                            <md-field class="getValidationClass('firstName')">
-                                                <label for="first-name">First Name</label>
-                                                <md-input name="first-name" id="first-name" autocomplete="given-name" v-model="form.firstName" :disabled="sending" />
-                                                <span class="md-error" v-if="!$v.form.firstName.required">The first name is required</span>
-                                                <span class="md-error" v-else-if="!$v.form.firstName.minlength">Invalid first name</span>
-                                            </md-field>
-                                        </div>
-
-                                        <div class="md-layout-item md-small-size-100">
-                                            <md-field class="getValidationClass('lastName')">
-                                                <label for="last-name">Last Name</label>
-                                                <md-input name="last-name" id="last-name" autocomplete="family-name" v-model="form.lastName" disabled="sending" />
-                                                <span class="md-error" v-if="!$v.form.lastName.required">The last name is required</span>
-                                                <span class="md-error" v-else-if="!$v.form.lastName.minlength">Invalid last name</span>
-                                            </md-field>
-                                        </div>
-                                    </div>
-
-                                    <div class="md-layout md-gutter">
-                                        <div class="md-layout-item md-small-size-100">
-                                            <md-field class="getValidationClass('gender')">
-                                                <label for="gender">Gender</label>
-                                                <md-select name="gender" id="gender" v-model="form.gender" md-dense disabled="sending">
-                                                    <md-option></md-option>
-                                                    <md-option value="M">M</md-option>
-                                                    <md-option value="F">F</md-option>
-                                                </md-select>
-                                                <span class="md-error">The gender is required</span>
-                                            </md-field>
-                                        </div>
-
-                                        <div class="md-layout-item md-small-size-100">
-                                            <md-field class="getValidationClass('age')">
-                                                <label for="age">Age</label>
-                                                <md-input type="number" id="age" name="age" autocomplete="age" v-model="form.age" disabled="sending" />
-                                                <span class="md-error" v-if="!$v.form.age.required">The age is required</span>
-                                                <span class="md-error" v-else-if="!$v.form.age.maxlength">Invalid age</span>
-                                            </md-field>
-                                        </div>
-                                    </div>
-
-                                    <md-field class="getValidationClass('email')">
-                                        <label for="email">Email</label>
-                                        <md-input type="email" name="email" id="email" autocomplete="email" v-model="form.email" disabled="sending" />
-                                        <span class="md-error" v-if="!$v.form.email.required">The email is required</span>
-                                        <span class="md-error" v-else-if="!$v.form.email.email">Invalid email</span>
-                                    </md-field>
-                                </md-card-content>
-
-                                <md-progress-bar md-mode="indeterminate" v-if="sending" />
-
-                                <md-card-actions>
-                                    <md-button type="submit" class="md-primary" disabled="sending">Create user</md-button>
-                                </md-card-actions>
-                            </md-card>
-
-                            <md-snackbar md-active.sync="userSaved">The user {{ lastUser }} was saved with success!</md-snackbar>
-                        </form>
-                    </div>
-                </template>
-            </div>
-
-            <script>
-                export default {
-                    name: 'TableCard'
-                }
-            </script>
-
-        </div>
-
-        <script src="https://unpkg.com/vue"></script>
-        <script src="https://unpkg.com/vue-material@beta"></script>
-        <script>
-Vue.use(VueMaterial.default)
-
-new Vue({
-    el: '#app'
-})
-        </script>
-        <script>
-            export default {
-                name: 'MediaCover'
-            }
-        </script>
-        <script>
-            import { validationMixin } from 'vuelidate'
-                    import {
-                    required,
-                            email,
-                            minLength,
-                            maxLength
-                    } from 'vuelidate/lib/validators'
-
-                    export default {
-                        name: 'FormValidation',
-                        mixins: [validationMixin],
-                        data: () => ({
-                                form: {
-                                    firstName: null,
-                                    lastName: null,
-                                    gender: null,
-                                    age: null,
-                                    email: null,
-                                },
-                                userSaved: false,
-                                sending: false,
-                                lastUser: null
-                            }),
-                        validations: {
-                            form: {
-                                firstName: {
-                                    required,
-                                    minLength: minLength(3)
-                                },
-                                lastName: {
-                                    required,
-                                    minLength: minLength(3)
-                                },
-                                age: {
-                                    required,
-                                    maxLength: maxLength(3)
-                                },
-                                gender: {
-                                    required
-                                },
-                                email: {
-                                    required,
-                                    email
-                                }
-                            }
-                        },
-                        methods: {
-                            getValidationClass(fieldName) {
-                                const field = this.$v.form[fieldName]
-
-                                if (field) {
-                                    return {
-                                        'md-invalid': field.$invalid && field.$dirty
-                                    }
-                                }
-                            },
-                            clearForm() {
-                                this.$v.$reset()
-                                this.form.firstName = null
-                                this.form.lastName = null
-                                this.form.age = null
-                                this.form.gender = null
-                                this.form.email = null
-                            },
-                            saveUser() {
-                                this.sending = true
-
-                                // Instead of this timeout, here you can call your API
-                                window.setTimeout(() => {
-                                    this.lastUser = `${this.form.firstName} ${this.form.lastName}`
-                                    this.userSaved = true
-                                    this.sending = false
-                                    this.clearForm()
-                                }, 1500)
-                            },
-                            validateUser() {
-                                this.$v.$touch()
-
-                                if (!this.$v.$invalid) {
-                                    this.saveUser()
-                                }
-                            }
-                        }
-                    }
-        </script>
-    </body>
+      new Vue({
+        el: '#app'
+      })
+    </script>
+    <script>
+        export default {
+          name: 'MediaCover'
+        }
+    </script>
+  </body>
 </html>

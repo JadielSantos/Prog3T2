@@ -7,34 +7,53 @@
     position: relative;
     float: left;
     margin-left: 10px;
-    width: 50%;
+    width: 49%;
     height: 100%;
 }
 
 .login_user_pass {
     position: relative;
     float: right;
-    margin-right: 10px;
-    width: 50%;
+    width: 49%;
     height: 100%;
 }
 
 .logo_login{
-    margin-left: 15px;
-    alignment-adjust: central;
+    margin-left: 30%;
 }
 
 .md-field:last-child {
     margin-bottom: 40px;
  }
 
- 
- .md-card {
+#card-login {
+    margin-top: 15%;
+}
+
+.img-viagem {
+    width: 700px;
+    height: 400px;
+ }
+
+.card-img {
+    position: relative;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 3%;
+}
+
+.titulo-pagina {
+    position: relative;
+    margin-left: 33%;
+    margin-right: 30%;
+}
+
+ /* .md-card {
     width: 320px;
     margin: 4px;
     display: inline-block;
     vertical-align: top;
-  }
+  } */
   
   .md-progress-bar {
     position: absolute;
